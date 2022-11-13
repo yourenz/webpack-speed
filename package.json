@@ -1,0 +1,23 @@
+{
+  "name": "webpack-speed",
+  "version": "1.0.0",
+  "description": "webpack speed",
+  "main": "src/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourenz/webpack-speed.git"
+  },
+  "keywords": [
+    "webpack",
+    "swc",
+    "esbuild",
+    "lightningcss"
+  ],
+  "author": "yourenz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourenz/webpack-speed/issues"
+  },
+  "homepage": "https://github.com/yourenz/webpack-speed#readme"
+}
