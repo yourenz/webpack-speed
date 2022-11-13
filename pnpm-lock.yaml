@@ -6,6 +6,7 @@ specifiers:
   cross-env: ^7.0.3
   css-loader: ^6.7.2
   css-minimizer-webpack-plugin: ^4.2.2
+  dotenv: ^16.0.3
   esbuild-loader: ^2.20.0
   html-webpack-plugin: ^5.5.0
   lightningcss: ^1.16.1
@@ -34,6 +35,7 @@ devDependencies:
   cross-env: 7.0.3
   css-loader: 6.7.2_webpack@5.75.0
   css-minimizer-webpack-plugin: 4.2.2_3cvwaxcgn4v2lvgp65nwgdyvc4
+  dotenv: 16.0.3
   esbuild-loader: 2.20.0_webpack@5.75.0
   html-webpack-plugin: 5.5.0_webpack@5.75.0
   lightningcss: 1.16.1
@@ -1458,6 +1460,11 @@ packages:
     dependencies:
       no-case: 3.0.4
       tslib: 2.4.1
+    dev: true
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
     dev: true
 
   /ee-first/1.1.1:

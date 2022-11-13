@@ -1,8 +1,10 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { ProgressPlugin } = webpack
+const { ProgressPlugin, DefinePlugin } = webpack
 const paths = require("./paths");
+
+require('dotenv').config()
 
 const env = {
     isProd: process.env.NODE_ENV === "production",
@@ -95,6 +97,9 @@ module.exports = {
         new ProgressPlugin(),
         new MiniCssExtractPlugin({
             filename: cssFilename
+        }),
+        new DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
     ],
     cache: {
