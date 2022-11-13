@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "webpack speed",
   "main": "src/index.js",
-  "scripts": {},
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack serve --open --config webpack/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yourenz/webpack-speed.git"
@@ -19,5 +22,28 @@
   "bugs": {
     "url": "https://github.com/yourenz/webpack-speed/issues"
   },
-  "homepage": "https://github.com/yourenz/webpack-speed#readme"
+  "homepage": "https://github.com/yourenz/webpack-speed#readme",
+  "devDependencies": {
+    "@swc/core": "^1.3.16",
+    "browserslist": "^4.21.4",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.2",
+    "css-minimizer-webpack-plugin": "^4.2.2",
+    "esbuild-loader": "^2.20.0",
+    "html-webpack-plugin": "^5.5.0",
+    "lightningcss": "^1.16.1",
+    "mini-css-extract-plugin": "^2.6.1",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "swc-loader": "^0.2.3",
+    "webpack": "5.75.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
