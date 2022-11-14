@@ -1,4 +1,5 @@
 const { merge } = require("webpack-merge");
+const portfinder = require('portfinder');
 const { resolveApp } = require("./paths");
 const common = require("./webpack.common");
 
@@ -24,4 +25,13 @@ const config = merge(common, {
   plugins: [],
 });
 
-module.exports = config
+module.exports = new Promise((resolve, reject) => {
+  portfinder.getPort((err, port) => {
+    if (err) {
+      reject(err);
+      return;
+    }
+    config.devServer.port = port;
+    resolve(config);
+  });
+});

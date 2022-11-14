@@ -34,6 +34,7 @@
     "html-webpack-plugin": "5.5.0",
     "lightningcss": "1.16.1",
     "mini-css-extract-plugin": "2.6.1",
+    "portfinder": "^1.0.32",
     "postcss": "8.4.19",
     "postcss-loader": "7.0.1",
     "postcss-preset-env": "7.8.2",
