@@ -11,13 +11,15 @@ const env = {
     isDev: process.env.NODE_ENV === "development",
 };
 
-const { isProd } = env;
+const { isProd, isDev } = env;
 
 const jsFilename = isProd
-    ? "js/[name].[contenthash].bundle.js"
+    ? "js/[name].[contenthash:8].bundle.js"
     : "js/[name].bundle.js"
 
-const cssFilename = 'css/[name].css'
+const jsChunkFilename = isProd
+    ? "js/[name].[contenthash:8].chunk.js"
+    : "js/[name].chunk.js"
 
 module.exports = {
     entry: {
@@ -25,8 +27,9 @@ module.exports = {
     },
     output: {
         filename: jsFilename,
+        chunkFilename:jsChunkFilename,
         path: paths.appDist,
-        clean: true,
+       clean:true
     },
     resolve: {
         extensions: [".tsx", ".ts", ".js", 'jsx'],
@@ -64,12 +67,14 @@ module.exports = {
                 test: /\.(scss|sass)$/,
                 include: paths.appSrc,
                 use: [
-                    "style-loader",
-                    isProd && MiniCssExtractPlugin.loader,
+                    isDev ? "style-loader" : MiniCssExtractPlugin.loader,
                     {
                         loader: "css-loader",
                         options: {
-                            modules: true,
+                            modules: {
+                                localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                                localIdentContext: paths.appSrc,
+                            },
                             importLoaders: 2,
                         },
                     }
@@ -95,9 +100,6 @@ module.exports = {
             template: paths.appHtml,
         }),
         new ProgressPlugin(),
-        new MiniCssExtractPlugin({
-            filename: cssFilename
-        }),
         new DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
