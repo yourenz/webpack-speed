@@ -11,13 +11,12 @@ const config = merge(common, {
       directory: resolveApp("dist"),
     },
     client: {
-      logging: 'info',
+      logging: 'error',
       overlay: {
         errors: true,
         warnings: false,
       },
       progress: true,
-
     },
     compress: true,
     port: 8080,

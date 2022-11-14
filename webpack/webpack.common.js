@@ -21,6 +21,7 @@ const jsChunkFilename = isProd
     ? "js/[name].[contenthash:8].chunk.js"
     : "js/[name].chunk.js"
 
+
 module.exports = {
     entry: {
         app: `${paths.appSrc}/index.js`,
@@ -107,4 +108,14 @@ module.exports = {
     cache: {
         type: "filesystem",
     },
+    stats: {
+        all: false,
+		version: true,
+		timings: true,
+		errors: true,
+		errorsCount: true,
+		warnings: true,
+		warningsCount: true,
+		logging: "warn"
+    }
 };
