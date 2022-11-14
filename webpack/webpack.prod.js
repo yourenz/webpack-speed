@@ -10,7 +10,7 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash:8].css",
       chunkFilename: "css/[name].[contenthash:8].chunk.css",
-  })
+    }),
   ],
   optimization: {
     minimize: true,
@@ -18,12 +18,13 @@ module.exports = merge(common, {
     moduleIds: "deterministic",
     // chunkIds:'named',
     minimizer: [
+
+      new ESBuildMinifyPlugin({
+        legalComments: 'none'
+      }),
       new CssMinimizerPlugin({
         minify: CssMinimizerPlugin.lightningCssMinify,
       }),
-      new ESBuildMinifyPlugin({
-        legalComments: 'none'
-      })
     ],
     splitChunks: {
       chunks: "all",
@@ -31,7 +32,7 @@ module.exports = merge(common, {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           chunks: "all",
-          priority: 10, 
+          priority: 10,
           enforce: true,
         },
       },

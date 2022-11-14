@@ -27,9 +27,9 @@ module.exports = {
     },
     output: {
         filename: jsFilename,
-        chunkFilename:jsChunkFilename,
+        chunkFilename: jsChunkFilename,
         path: paths.appDist,
-       clean:true
+        clean: true
     },
     resolve: {
         extensions: [".tsx", ".ts", ".js", 'jsx'],
